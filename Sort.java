@@ -67,7 +67,7 @@ public class Sort {
 		if (list.size() < 2) {
 			return;
 		}
-
+		// break the list in halves
 		int divide = list.size() / 2 - 1;
 
 		IndexedUnsortedList<T> left = newList();
@@ -87,6 +87,7 @@ public class Sort {
 		mergesort(left);
 		mergesort(right);
 
+		// build up list
 		while(!left.isEmpty() && !right.isEmpty()) {
 			if(left.first().compareTo(right.first()) == -1) {
 				list.add(left.removeFirst());
@@ -122,6 +123,7 @@ public class Sort {
 		return;
 	}
 
+	// break list in halves
 	int divide = list.size() / 2 - 1;
 
 	IndexedUnsortedList<T> left = newList();
@@ -141,6 +143,7 @@ public class Sort {
 	mergesort(left, c);
 	mergesort(right, c);
 
+	// build up list
 	while(!left.isEmpty() && !right.isEmpty()) {
 		if(c.compare(left.first(), right.first()) == -1) {
 			list.add(left.removeFirst());
